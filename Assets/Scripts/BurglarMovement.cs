@@ -7,7 +7,7 @@ public class BurglarMovement : MonoBehaviour
     [SerializeField]private bool _isLookingToRight;
     [SerializeField] private float _speed = 3;
 
-    private void Update()
+    private void FixedUpdate()
     {
         Move();
     }
@@ -20,7 +20,7 @@ public class BurglarMovement : MonoBehaviour
             FlipSpriteX();
         else if (xAxis > 0 && !_isLookingToRight)
             FlipSpriteX();
-        transform.position += new Vector3(xAxis, yAxis) * _speed * Time.deltaTime;
+        transform.position += new Vector3(xAxis, yAxis) * _speed * Time.fixeDeltaTime;
     }
 
     private void FlipSpriteX()
