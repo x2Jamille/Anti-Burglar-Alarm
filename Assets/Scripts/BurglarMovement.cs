@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BurglarMovement : MonoBehaviour
 {
-    [SerializeField]private bool _isLookingToRight;
+    [SerializeField] private bool _isLookingToRight;
     [SerializeField] private float _speed = 3;
 
     private void FixedUpdate()
@@ -20,7 +20,7 @@ public class BurglarMovement : MonoBehaviour
             FlipSpriteX();
         else if (xAxis > 0 && !_isLookingToRight)
             FlipSpriteX();
-        transform.position += new Vector3(xAxis, yAxis) * _speed * Time.fixeDeltaTime;
+        transform.position += new Vector3(xAxis, yAxis) * _speed * Time.fixedDeltaTime;
     }
 
     private void FlipSpriteX()

@@ -846,7 +846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83282a3dd5ea33043954955d0637c0e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialVolume: 0.01
   _volumeUpStep: 0.01
 --- !u!61 &1975927394
 BoxCollider2D:
@@ -900,9 +899,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cd62d2b2137c1df45a4776da871518e8, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.18
+  m_Volume: 0.01
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

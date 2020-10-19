@@ -5,30 +5,19 @@ using DG.Tweening;
 
 public class Alarm : MonoBehaviour
 {
-
     private AudioSource _alarm;
     private bool _isBurglarInside;
-
-    [SerializeField] private float _initialVolume;
-    [SerializeField] private float _volumeUpStep;
 
     private void Awake()
     {
         _alarm = GetComponent<AudioSource>();
-        _alarm.volume = _initialVolume;
+        _alarm.volume = 0.001f;
     }
 
     private void Update()
     {
-        if (_isBurglarInside)
-        {
-            _alarm.volume += _volumeUpStep * Time.deltaTime;
-        }
-        else
-        {
-            if (_alarm.volume <= _initialVolume)
+            if (!_isBurglarInside && _alarm.volume <= 0.01f)
                 _alarm.Stop();
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,6 +26,7 @@ public class Alarm : MonoBehaviour
         {
             _isBurglarInside = true;
             _alarm.Play();
+            _alarm.DOFade(1, 10);
         }
     }
 
@@ -45,7 +35,7 @@ public class Alarm : MonoBehaviour
         if (collision.GetComponent<BurglarMovement>())
         {
             _isBurglarInside = false;
-            _alarm.DOFade(_initialVolume, 3);
+            _alarm.DOFade(0, 5);
         }
     }
 }
